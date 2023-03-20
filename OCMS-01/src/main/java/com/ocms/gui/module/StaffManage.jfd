@@ -1,0 +1,65 @@
+JFDML JFormDesigner: "7.0.4.0.360" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:30:p, par l {seq {comp button3:::p:95:p, space :p:31:p, comp button2:::p:95:p, space u:::p, comp button4:::p:95:p, space u:::p, comp button5:::p:95:p}, seq {comp button1:::p:95:p, space :p:27:p, par l:::p {seq {comp label1:::p::p, space :p:16:p, comp label2:::p::p, space :::x, comp label3:::p::p, space :p:42:p, comp label4:::p::p}, comp scrollPane1:::p:310:p}}}, space ::58:x}}"
+			"$verticalGroup": "par l {seq t {space :p:18:p, par b {comp label1::b:p::p, comp label2::b:p::p, comp label4::b:p::p, comp label3::b:p::p}, space u:::p, par l {comp button1:::p:40:p, comp scrollPane1:::p:200:p}, space s:::p, par l {comp button3:::p:40:p, par b {comp button4::b:p:40:p, comp button2::b:p:40:p, comp button5::b:p:40:p}}, space ::22:x}}"
+		} ) {
+			name: "this"
+			"title": "员工管理"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "员工ID"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "所属部门"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "员工姓名"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "联系方式"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "所有员工"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "query", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "新增员工"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "insert", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button5"
+				"text": "删除员工"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "delete", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button4"
+				"text": "修改员工"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "update", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "返回"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "back", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "back", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 525, 360 )
+		} )
+	}
+}

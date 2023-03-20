@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ocms.dao.AdminMapper">
+
+    <select id="adminLogin" parameterType="map" resultType="admin">
+        select * from ocms.admin
+        where admin_account = #{adminAccount}
+    </select>
+    
+    <select id="adminGetStaIdByApplyId" resultType="int">
+        select sta_id from ocms.apply
+        where apply_id = #{applyId}
+    </select>
+
+    <update id="adminAgreeApply" parameterType="map">
+        update ocms.consume, ocms.apply
+        <set>
+            <choose>
+                <when test="staId != 1">
+                    con_num = con_num - apply.apply_num,
+                </when>
+                <when test="staId == 1">
+                    con_num = con_num + apply.apply_num, con_is_replenish = 0, con_indate = NOW(),
+                </when>
+            </choose>
+            admin_id = #{adminId}, apply_note = #{applyNote}, apply_is_check = 1, apply_result = 1,
+        </set>
+        <where>
+            apply.con_id = consume.con_id and apply_id = #{applyId}
+        </where>
+    </update>
+
+    <update id="adminRejectApply" parameterType="map">
+        update ocms.apply
+        set admin_id = #{adminId}, apply_note = #{applyNote}, apply_is_check = 1, apply_result = 0
+        where apply_id = #{applyId}
+    </update>
+
+    <update id="adminEncryptPasswd" parameterType="map">
+        update ocms.admin
+        set admin_passwd = MD5(admin_passwd)
+    </update>
+
+    <select id="adminListApply" resultType="apply">
+        select * from ocms.apply
+    </select>
+
+    <select id="adminGetTreatApply" parameterType="map" resultType="apply">
+        select * from ocms.apply
+        where apply_is_check = 1
+    </select>
+
+    <select id="adminGetUnTreatApply" parameterType="map" resultType="apply">
+        select * from ocms.apply
+        where apply_is_check = 0
+    </select>
+
+    <select id="adminGetApplyByStaName" resultType="apply">
+        select * from ocms.apply, ocms.staff
+        where apply.sta_id = staff.sta_id
+        and staff.sta_name = #{staName}
+        and apply.apply_result = 1
+    </select>
+
+    <select id="adminListStaff" resultType="staff">
+        select * from ocms.staff
+    </select>
+
+    <update id="adminUpdateStaff" parameterType="map">
+        update ocms.staff
+        set sta_name = #{staName}, sta_dept = #{staDept}, sta_tele = #{staTele}
+        where sta_id = #{staId}
+    </update>
+
+    <insert id="adminInsertStaff" parameterType="map">
+        insert into staff(sta_id, sta_name, sta_dept, sta_tele)
+        values (null, #{staName}, #{staDept}, #{staTele})
+    </insert>
+
+    <delete id="adminDeleteStaff" parameterType="map">
+        delete from ocms.staff
+        where sta_id = #{staId}
+    </delete>
+
+    <select id="adminListConsume" resultType="consume">
+        select * from ocms.consume
+    </select>
+
+    <update id="adminUpdateConsume" parameterType="map">
+        update ocms.consume
+        set con_name = #{conName}, con_num = #{conNum}, con_factory = #{conFactory}, con_indate = NOW()
+        where con_id = #{conId}
+    </update>
+
+    <insert id="adminInsertConsume" parameterType="map">
+        insert into ocms.consume(con_id, con_name, con_num, con_factory, con_indate, con_is_replenish)
+        values (null, #{conName}, #{conNum}, #{conFactory}, NOW(), 0)
+    </insert>
+
+    <delete id="adminDeleteConsume" parameterType="map">
+        delete from ocms.consume
+        where con_id = #{conId}
+    </delete>
+
+</mapper>

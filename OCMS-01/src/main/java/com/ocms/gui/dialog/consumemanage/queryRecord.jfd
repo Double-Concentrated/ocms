@@ -1,0 +1,42 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:28:p, comp button1:::p:76:p, space :34:34:p, comp button2:::p:76:p}, seq l {space :p:12:p, comp label1:::p::p, space u:::p, comp textField1:::p:162:p}, seq l {space :p:58:p, comp label2:::p::p}}, space ::9:x}}"
+			"$verticalGroup": "par l {seq l {space :p:17:p, comp label2:::p::p, space s:::p, par b {comp textField1::b:p::p, comp label1::b:p::p}, space s:::p, par l {comp button1:::p:29:p, comp button2:::p:29:p}, space ::15:x}}"
+		} ) {
+			name: "this"
+			"title": "查询申请记录"
+			addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "close", true ) )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "getstaName", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "ok", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "请输入要查询的员工"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 2, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "员工姓名"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "确定"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "ok", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "取消"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "cancel", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 245, 165 )
+		} )
+	}
+}

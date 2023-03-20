@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ocms.dao.StaffMapper">
+    <select id="staffListStaff" parameterType="map" resultType="staff">
+        select * from ocms.staff
+    </select>
+
+    <select id="staffGetStaffByStaName" parameterType="map"  resultType="staff">
+        select * from ocms.staff
+        where sta_name = #{staName}
+    </select>
+
+    <insert id="staffSubmitApply" parameterType="map">
+        insert into apply(apply_id, sta_id, admin_id, con_id, apply_time, con_time, apply_num, apply_name, apply_is_check, apply_note)
+        select null, #{staId}, null, con_id, NOW(), #{conTime}, #{applyNum}, #{applyName}, 0, null
+        from consume
+        where con_name = #{applyName}
+    </insert>
+
+    <select id="staffQueryApply" parameterType="map" resultType="apply">
+        select apply_id, apply_name, apply_time, con_time, apply_num, apply_is_check, apply_result, apply_note
+        from ocms.apply
+        where sta_id = #{staId}
+    </select>
+</mapper>

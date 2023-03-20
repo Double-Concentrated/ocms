@@ -1,0 +1,48 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:71:p, par l {comp label1::l:p::p, comp label3::t:p::p}, space u:::p, par l {comp textField1:::p:180:p, comp passwordField1::l:p:180:p}}, seq l {space :p:157:p, comp label2:::p::p}, seq l {space :p:151:p, comp button1:::p:95:p}}, space ::103:x}}"
+			"$verticalGroup": "par l {seq t {space :p:26:p, comp label2:::p:40:p, space s:::p, par b {comp textField1::b:p::p, comp label1::b:p::p}, space :p:26:p, par b {comp passwordField1::b:p::p, comp label3::b:p::p}, space :p:31:p, comp button1:::p:40:p, space ::35:x}}"
+		} ) {
+			name: "this"
+			"title": "登录"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				"text": "管理员登录"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "账号"
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "密码"
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "getadminAccount", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField1"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "getadminPasswd", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyTyped", "enterToLogin", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "登录"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "Login", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

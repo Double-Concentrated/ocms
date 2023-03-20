@@ -1,0 +1,77 @@
+JFDML JFormDesigner: "7.0.4.0.360" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:30:p, par l {seq {comp button3:::p:95:p, space :p:71:p, comp button4:::p:95:p, space :p:33:p, comp button5:::p:95:p}, seq {par l {comp button1:::p:95:p, comp button2:::p:95:p, comp button6:::p:95:p}, space :p:27:p, par l {seq {comp label1:::p::p, space :p:16:p, comp label2:::p::p, space s:::p, comp label3:::p::p, space s:::p, comp label4:::p::p, space :p:32:p, comp label5:::p::p}, comp scrollPane1:::p:310:p}}}, space ::61:x}}"
+			"$verticalGroup": "par l {seq t {space :p:18:p, par b {comp label1::b:p::p, comp label5::b:p::p, comp label4::b:p::p, comp label3::b:p::p, comp label2::b:p::p}, space u:::p, par l {seq {comp button1:::p:40:p, space :16:16:p, comp button2:::p:40:p, space s:::p, comp button6:::p:40:p}, comp scrollPane1:::p:200:p}, space s:::p, par b {comp button5::b:p:40:p, comp button4::b:p:40:p, comp button3::b:p:40:p}, space ::27:x}}"
+		} ) {
+			name: "this"
+			"title": "审核"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "单号"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "申请时间"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "领用时间"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "申请数量"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "耗材名称"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "所有申请"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "query", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "待处理"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "getTODO", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button4"
+				"text": "同意申请"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "agree", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button5"
+				"text": "拒绝申请"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "reject", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "返回"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "back", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "back", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button6"
+				"text": "领用情况"
+				"maximumSize": new java.awt.Dimension( 64, 27 )
+				"minimumSize": new java.awt.Dimension( 64, 27 )
+				"preferredSize": new java.awt.Dimension( 64, 27 )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "getRecord", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 525, 360 )
+		} )
+	}
+}

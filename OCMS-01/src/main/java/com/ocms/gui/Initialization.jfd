@@ -1,0 +1,39 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space ::72:x, par l {seq t {comp label1:::p:115:p, space :p:138:p}, seq t {par t {comp label2:::p::p, seq t {comp button1:::p:95:p, space :p:66:p, comp button2:::p:95:p}}, space :p:70:p}}}}"
+			"$verticalGroup": "par l {seq l {space :p:44:p, comp label2:::p:40:p, space s:::p, comp label1:::p:36:p, space :p:36:p, par b {comp button2::b:p:40:p, comp button1::b:p:40:p}, space ::54:x}}"
+		} ) {
+			name: "this"
+			"title": "办公室耗材管理系统"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "请选择客户端"
+				"font": &SwingDerivedFont0 new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "欢迎使用办公室耗材管理系统^_^"
+				"font": #SwingDerivedFont0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "管理员"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "chooseAdmin", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "chooseAdmin", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "用户"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "chooseStaff", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "chooseStaff", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

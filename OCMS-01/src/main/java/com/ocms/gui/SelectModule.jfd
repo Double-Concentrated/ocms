@@ -1,0 +1,46 @@
+JFDML JFormDesigner: "7.0.3.0.337" Java: "11.0.10" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space ::65:x, comp label2:::p:130:p, space :p:59:p, par l {comp button1:::p:95:p, comp button2:::p:95:p, comp button3:::p:95:p, comp button4:::p:95:p}, space :p:49:p}}"
+			"$verticalGroup": "par l {seq {par l {seq {space :p:102:p, comp label2:::p:40:p}, seq l {space :p:30:p, comp button1:::p:40:p, space :16:16:p, comp button2:::p:40:p, space :16:16:p, comp button3:::p:40:p, space :p:16:p, comp button4:::p:40:p}}, space ::30:x}}"
+		} ) {
+			name: "this"
+			"title": "办公室耗材管理系统-管理员"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "请选择功能模块"
+				"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 5, false )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "审核"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "check", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "check", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "员工管理"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "staffManage", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "staffManage", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "耗材管理"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "consumeManage", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "consumeManage", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button4"
+				"text": "退出系统"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyPressed", "exit", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "exit", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
